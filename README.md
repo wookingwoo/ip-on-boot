@@ -22,19 +22,24 @@ This service automatically sends the server's Internal and Public IP addresses t
    ```
    Replace the placeholder URL with your actual Slack Webhook URL.
 
-3. **Configure the Service Path**:
+3. **Make the Script Executable**:
+   ```bash
+   chmod +x send_ip_to_slack.sh
+   ```
+
+4. **Configure the Service Path**:
    Open `ip-on-boot.service` and modify the `ExecStart` path to match your installation directory if it is different from `/home/wookingwoo/ip-on-boot/`.
    ```ini
    ExecStart=/path/to/your/ip-on-boot/send_ip_to_slack.sh
    ```
 
-4. **Install the Service**:
+5. **Install the Service**:
    Copy the service file to the systemd directory:
    ```bash
    sudo cp ip-on-boot.service /etc/systemd/system/
    ```
 
-5. **Reload Systemd and Enable the Service**:
+6. **Reload Systemd and Enable the Service**:
    ```bash
    sudo systemctl daemon-reload
    sudo systemctl enable ip-on-boot.service
