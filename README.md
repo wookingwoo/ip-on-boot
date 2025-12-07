@@ -13,11 +13,14 @@ This service automatically sends the server's Internal and Public IP addresses t
 1. **Clone or Copy files**:
    Place the files in a directory, for example: `/home/wookingwoo/ip-on-boot/`.
 
-2. **Configure the Script**:
-   Open `send_ip_to_slack.sh` and replace the placeholder URL with your actual Slack Webhook URL:
+2. **Configure the Service**:
+2. **Configure the Service**:
+   Copy the example configuration file and edit it:
    ```bash
-   SLACK_WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+   cp config.env.example config.env
+   nano config.env
    ```
+   Replace the placeholder URL with your actual Slack Webhook URL.
 
 3. **Make the Script Executable**:
    ```bash

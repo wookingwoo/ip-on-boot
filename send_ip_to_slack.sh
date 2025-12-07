@@ -1,8 +1,21 @@
 #!/bin/bash
 
 # Configuration
-# Replace with your actual Slack Webhook URL
-SLACK_WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+# Load configuration from config.env
+CONFIG_FILE="$(dirname "$0")/config.env"
+
+if [ -f "$CONFIG_FILE" ]; then
+    source "$CONFIG_FILE"
+else
+    echo "Error: config.env not found!"
+    exit 1
+fi
+
+# Check if URL is set
+if [ -z "$SLACK_WEBHOOK_URL" ]; then
+    echo "Error: SLACK_WEBHOOK_URL is not set in config.env"
+    exit 1
+fi
 
 # Function to get Internal IP
 get_internal_ip() {
