@@ -55,5 +55,6 @@ payload="payload={\"text\": \"$MESSAGE\"}"
 
 # Use curl to send the post request
 curl -s -X POST --data-urlencode "$payload" "$SLACK_WEBHOOK_URL"
+echo ""
 
 echo "Notification sent to Slack."
