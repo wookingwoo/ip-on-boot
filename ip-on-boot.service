@@ -6,8 +6,6 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 ExecStart=/home/wookingwoo/ip-on-boot/send_ip_to_slack.sh
-User=wookingwoo
-Group=wookingwoo
 StandardOutput=journal
 StandardError=journal
 
