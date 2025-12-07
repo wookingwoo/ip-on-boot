@@ -3,9 +3,6 @@
 # Configuration
 # Replace with your actual Slack Webhook URL
 SLACK_WEBHOOK_URL="https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
-CHANNEL="#general"
-USERNAME="IP-Bot"
-ICON_EMOJI=":satellite:"
 
 # Function to get Internal IP
 get_internal_ip() {
@@ -41,7 +38,7 @@ DATE=$(date)
 MESSAGE="*Server Booted!* :rocket:\n\n*Details:*\n- *Hostname:* $HOSTNAME\n- *Time:* $DATE\n- *Internal IP:* $INTERNAL_IP\n- *Public IP:* $PUBLIC_IP"
 
 # Send to Slack
-payload="payload={\"channel\": \"$CHANNEL\", \"username\": \"$USERNAME\", \"text\": \"$MESSAGE\", \"icon_emoji\": \"$ICON_EMOJI\"}"
+payload="payload={\"text\": \"$MESSAGE\"}"
 
 # Use curl to send the post request
 curl -s -X POST --data-urlencode "$payload" "$SLACK_WEBHOOK_URL"
